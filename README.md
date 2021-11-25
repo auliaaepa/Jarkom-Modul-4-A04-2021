@@ -35,7 +35,7 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
     | A15 | 2 | /30 |
     | **Total** | **5845** | **/19** |
 4. Hitung pembagian IP (subnetting) berdasarkan netmask yang diperoleh melalui perhitungan jumlah ip (/19) menggunakan pohon sebagai berikut.
-    ![Subnetting-VLSM + server](https://user-images.githubusercontent.com/76677130/143471248-8dd31eff-5446-4db1-8cea-f43cbcb48abb.png)
+    ![Subnetting-tree](https://user-images.githubusercontent.com/76677130/143471573-f8869d21-ba03-4003-abdb-19d74dc569a1.png)
     Berikut adalah hasil perhitungan IP setiap subnet berdasarkan pohon tersebut.
 
 5. Atur IP untuk masing-masing interface pada setiap router dengan cara `klik router` > `Config` > `INTERFACE` > `(nama interface)`, isi `IP Configuration` (IPv4 Address dan Subnet Mask) dengan hasil subnetting, dan ubah `Port Status` menjadi on.
