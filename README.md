@@ -79,7 +79,7 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
         Default Gateway : 
         ```
     * Dan seterusnya
-7. Atur static route untuk setiap router dengan cara `klik router` > `Config` > `ROUTING` > `Static`, dan tambahkan `Network`, `Mask`, dan `Next Hop` untuk seluruh end system.
+7. Atur static route untuk setiap router dengan cara `klik router` > `Config` > `ROUTING` > `Static`, dan tambahkan `Network`, `Mask`, dan `Next Hop` untuk seluruh end system yang dapat terhubung memlaui router tersebut.
     * Foosha
         ```
         
@@ -110,18 +110,32 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
         ```
 8. Testing pengaturan subnetting dan routing
     * ... menuju ...
-    * Dan seterusnya
-9. 
+    * Dan seterusnya 
 
 ### GNS3 - CIDR
 1. Buat topologi hingga diperoleh hasil sebagai berikut.
 
 2. Beri label pada setiap subnet.
-
+    ![Subnetting-CIDR-1](https://user-images.githubusercontent.com/76677130/143618962-98fd9b20-d984-45a6-803d-d95bc9ea83ea.png)
 3. Gabungkan subnet untuk memperoleh subnet terbesar.
-
+    * Tahap ke-1
+        ![Subnetting-CIDR-2](https://user-images.githubusercontent.com/76677130/143619037-1c2e96ce-9339-4912-9b52-056d69200a90.png)
+    * Tahap ke-2
+        ![Subnetting-CIDR-3](https://user-images.githubusercontent.com/76677130/143619047-f62ab743-bb09-4d9c-a490-ce575ef7c4f3.png)
+    * Tahap ke-3
+        ![Subnetting-CIDR-4](https://user-images.githubusercontent.com/76677130/143619057-43fb6bc7-feab-4244-8d9d-4e039d86de07.png)
+    * Tahap ke-4
+        ![Subnetting-CIDR-5](https://user-images.githubusercontent.com/76677130/143619062-87ee32ac-22d4-44de-8ab4-fbd10844e705.png)
+    * Tahap ke-5
+        ![Subnetting-CIDR-6](https://user-images.githubusercontent.com/76677130/143619072-3ed3261d-8897-4471-a264-6b4b34a931b5.png)
+    * Tahap ke-6
+        ![Subnetting-CIDR-7](https://user-images.githubusercontent.com/76677130/143619082-e7eb88cc-7f44-46f6-9068-093ce7c3c2c2.png)
+    * Tahap ke-7
+        ![Subnetting-CIDR-8](https://user-images.githubusercontent.com/76677130/143619097-e06a1332-3ae7-4e94-8236-45c7e2969811.png)
+    * Tahap ke-8
+        ![Subnetting-CIDR-9](https://user-images.githubusercontent.com/76677130/143619111-994f5947-17d7-4ef8-96c9-dc40ba3a49d5.png)
 4. Hitung pembagian IP (subnetting) berdasarkan penggabungan subnet yang telah dilakukan dengan pohon sebagai berikut.
-
+    ![Subnetting-CIDR-TREE](https://user-images.githubusercontent.com/76677130/143619160-f2a442e2-70ac-4060-a1e6-d1c1611ef682.png)
     Berikut adalah hasil perhitungan IP setiap subnet berdasarkan pohon tersebut.
     
 5. Atur IP untuk masing-masing interface pada setiap device dengan cara `klik device` > `Configure` > `Edit Network Configuration` dan ubah menjadi sebagai berikut.
@@ -139,4 +153,3 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
 7. Testing pengaturan subnetting dan routing dengan melakukan ping ke its.ac.id
     * ...
     * Dan seterusnya
-8. a
