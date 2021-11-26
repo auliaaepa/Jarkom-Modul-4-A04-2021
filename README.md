@@ -37,7 +37,23 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
 4. Hitung pembagian IP (subnetting) berdasarkan netmask yang diperoleh melalui perhitungan jumlah ip (/19) menggunakan pohon sebagai berikut.
     ![Subnetting-tree](https://user-images.githubusercontent.com/76677130/143471573-f8869d21-ba03-4003-abdb-19d74dc569a1.png)
     Berikut adalah hasil perhitungan IP setiap subnet berdasarkan pohon tersebut.
-
+    | **Subnet**	| **NID**	| **Subnet Mask**	| **Broadcast Address** |
+    | :---: | :---: | :---: | :---: |
+    | A1	| 10.1.0.128	| 255.255.255.128	| 10.1.0.255 |
+    | A2	| 10.1.24.0	| 255.255.248.0	| 10.1.31.255 |
+    | A3	| 10.1.0.0	| 255.255.255.252	| 10.1.0.3 |
+    | A4	| 10.1.4.0	| 255.255.252.0	| 10.1.7.255 |
+    | A5	| 10.1.0.4	| 255.255.255.252	| 10.1.0.7 |
+    | A6	| 10.1.8.0	| 255.255.252.0	| 10.1.11.255 |
+    | A7	| 10.1.0.32	| 255.255.255.252	| 10.1.0.35 |
+    | A8	| 10.1.0.8	| 255.255.255.252	| 10.1.0.11 |
+    | A9	| 10.1.12.0	| 255.255.252.0	| 10.1.15.255 |
+    | A10	| 10.1.2.0	| 255.255.254.0	| 10.1.3.255 |
+    | A11	| 10.1.0.16	| 255.255.255.240	| 10.1.0.31 |
+    | A12	| 10.1.0.12	| 255.255.255.252	| 10.1.0.13 |
+    | A13	| 10.1.1.0	| 255.255.255.0	| 10.1.1.255 |
+    | A14	| 10.1.16.0	| 255.255.252.0	| 10.1.19.255 |
+    | A15	| 10.1.0.36	| 255.255.255.252	| 10.1.0.39 |
 5. Atur IP untuk masing-masing interface pada setiap router dengan cara `klik router` > `Config` > `INTERFACE` > `(nama interface)`, isi `IP Configuration` (IPv4 Address dan Subnet Mask) dengan hasil subnetting, dan ubah `Port Status` menjadi on.
     * Pucci
         * FastEthernet0/0 (mengarah ke Water7)
@@ -135,9 +151,25 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
     * Tahap ke-8
         ![Subnetting-CIDR-9](https://user-images.githubusercontent.com/76677130/143619111-994f5947-17d7-4ef8-96c9-dc40ba3a49d5.png)
 4. Hitung pembagian IP (subnetting) berdasarkan penggabungan subnet yang telah dilakukan dengan pohon sebagai berikut.
-    ![Subnetting-CIDR-TREE](https://user-images.githubusercontent.com/76677130/143619160-f2a442e2-70ac-4060-a1e6-d1c1611ef682.png)
+    ![Subnetting-CIDR-tree](https://user-images.githubusercontent.com/76677130/143620568-dfd7502b-5e15-4960-b2b9-3358dfe464c3.png)
     Berikut adalah hasil perhitungan IP setiap subnet berdasarkan pohon tersebut.
-    
+    | **Subnet**	| **NID**	| **Subnet Mask**	| **Broadcast Address** |
+    | :---: | :---: | :---: | :---: |
+    | A1	| 10.1.8.0	| 255.255.255.128	| 10.1.8.127 |
+    | A2	| 10.1.0.0	| 255.255.248.0	| 10.1.7.255 |
+    | A3	| 10.1.16.0	| 255.255.255.252	| 10.1.16.3 |
+    | A4	| 10.1.32.0	| 255.255.252.0	| 10.1.35.255 |
+    | A5	| 10.1.64.0	| 255.255.255.252	| 10.1.64.3 |
+    | A6	| 10.1.128.0	| 255.255.252.0	| 10.1.131.255 |
+    | A7	| 10.2.128.0	| 255.255.255.252	| 10.2.128.3 |
+    | A8	| 10.2.64.0	| 255.255.255.252	| 10.2.64.3 |
+    | A9	| 10.2.36.0	| 255.255.252.0	| 10.2.39.255 |
+    | A10	| 10.2.32.0	| 255.255.254.0	| 10.2.33.255 |
+    | A11	| 10.2.34.0	| 255.255.255.240	| 10.2.34.15 |
+    | A12	| 10.2.16.0	| 255.255.255.252	| 10.2.16.3 |
+    | A13	| 10.2.4.0	| 255.255.255.0	| 10.2.4.255 |
+    | A14	| 10.2.0.0	| 255.255.252.0	| 10.2.3.255 |
+    | A15	| 10.2.8.0	| 255.255.255.252	| 10.2.8.3 |
 5. Atur IP untuk masing-masing interface pada setiap device dengan cara `klik device` > `Configure` > `Edit Network Configuration` dan ubah menjadi sebagai berikut.
     * Foosha
         ```
