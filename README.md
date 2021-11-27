@@ -12,7 +12,7 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
 
 ### Cisco - VLSM
 1. Buat topologi hingga diperoleh hasil sebagai berikut.
-
+    ![WhatsApp Image 2021-11-27 at 17 14 42](https://user-images.githubusercontent.com/76677130/143677195-fc276d4e-4fe3-4830-a615-56f68241c256.jpeg)    
 2. Beri label pada setiap subnet.
     ![Subnetting-VLSM + server](https://user-images.githubusercontent.com/76677130/143471095-40470956-64cf-4656-a960-eb43dbd6ad9a.png)
 3. Hitung jumlah alamat IP yang dibutuhkan oleh tiap subnet.
@@ -54,78 +54,95 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
     | A13	| 10.1.1.0	| 255.255.255.0	| 10.1.1.255 |
     | A14	| 10.1.16.0	| 255.255.252.0	| 10.1.19.255 |
     | A15	| 10.1.0.36	| 255.255.255.252	| 10.1.0.39 |
-5. Atur IP untuk masing-masing interface pada setiap router dengan cara `klik router` > `Config` > `INTERFACE` > `(nama interface)`, isi `IP Configuration` (IPv4 Address dan Subnet Mask) dengan hasil subnetting, dan ubah `Port Status` menjadi on.
-    * Pucci
-        * FastEthernet0/0 (mengarah ke Water7)
-            ```
-            IPv4 Address : 
-            Subnet Mask : 
-            ```
-            
-        * FastEthernet0/1 (mengarah ke Jipangu)
-            ```
-            IPv4 Address : 
-            Subnet Mask : 
-            ```
-            
-        * FastEthernet1/0 (mengarah ke Courtyard dan Calmbelt)
-            ```
-            IPv4 Address : 
-            Subnet Mask : 
-            ```
-            
+5. Atur IP untuk masing-masing interface pada setiap router dengan cara `klik router` > `Config` > `INTERFACE` > `(nama interface)`, isi `IPv4 Address` dan `Subnet Mask` pada IP Configuration dengan hasil subnetting, serta ubah `Port Status` menjadi on.
+    * PUCCI
+        ```
+        # FastEthernet0/0 (mengarah ke WATER7)
+        IPv4 Address : 10.1.0.2
+        Subnet Mask : 255.255.255.252
+        
+        # FastEthernet0/1 (mengarah ke JIPANGU)
+        IPv4 Address : 10.1.0.129
+        Subnet Mask : 255.255.255.128
+        
+        # FastEthernet1/0 (mengarah ke COURTYARD dan CALMBELT)
+        IPv4 Address : 10.1.24.1
+        Subnet Mask : 255.255.248.0
+        ```            
     * Dan seterusnya
-6. Atur IP untuk masing-masing interface pada setiap end system (server dan client) dengan cara `klik end system` > `Desktop` > `IP Configuration`, dan ubah `IPv4 Address`, `Subnet Mask`, serta `Default Gateway` dengan hasil subnetting dan IP router.
-    * Jipangu
+6. Atur IP untuk masing-masing interface pada setiap end system (server dan client) dengan cara `klik end system` > `Desktop` > `IP Configuration`, dan ubah `IPv4 Address`, `Subnet Mask`, serta `Default Gateway` dengan hasil subnetting dan IP interface router.
+    * JIPANGU
         ```
-        IPv4 Address : 
-        Subnet Mask : 
-        Default Gateway : 
+        IPv4 Address : 10.1.0.130
+        Subnet Mask : 255.255.255.128
+        Default Gateway : 10.1.0.129
         ```
-    * Courtyard
+    * COURTYARD
         ```
-        IPv4 Address : 
-        Subnet Mask : 
-        Default Gateway : 
+        IPv4 Address : 10.1.24.2
+        Subnet Mask : 255.255.248.0
+        Default Gateway : 10.1.24.1
         ```
-    * Calmbelt
+    * CALMBELT
         ```
-        IPv4 Address : 
-        Subnet Mask : 
-        Default Gateway : 
+        IPv4 Address : 10.1.24.3
+        Subnet Mask : 255.255.248.0
+        Default Gateway : 0.1.24.1
         ```
     * Dan seterusnya
-7. Atur static route untuk setiap router dengan cara `klik router` > `Config` > `ROUTING` > `Static`, dan tambahkan `Network`, `Mask`, dan `Next Hop` untuk seluruh end system yang dapat terhubung memlaui router tersebut.
-    * Foosha
+7. Atur static route untuk setiap router dengan cara `klik router` > `Config` > `ROUTING` > `Static`, dan tambahkan `Network`, `Mask`, dan `Next Hop` untuk seluruh device baik end system maupun router yang dapat terhubung melalui router tersebut.
+    * FOOSHA
         ```
-        
+        Network 10.1.4.0 Mask 255.255.252.0 Next Hop 10.1.0.6
+        Network 10.1.0.128 Mask 255.255.255.128 Next Hop 10.1.0.6
+        Network 10.1.24.0 Mask 255.255.248.0 Next Hop 10.1.0.6
+        Network 10.1.0.0 Mask 255.255.255.252 Next Hop 10.1.0.6
+        Network 10.1.12.0 Mask 255.255.252.0 Next Hop 10.1.0.10
+        Network 10.1.2.0 Mask 255.255.254.0 Next Hop 10.1.0.10
+        Network 10.1.0.16 Mask 255.255.255.240 Next Hop 10.1.0.10
+        Network 10.1.0.12 Mask 255.255.255.252 Next Hop 10.1.0.10
+        Network 10.1.1.0 Mask 255.255.255.0 Next Hop 10.1.0.10
+        Network 10.1.16.0 Mask 255.255.252.0 Next Hop 10.1.0.10
+        Network 10.1.0.36 Mask 255.255.255.252 Next Hop 10.1.0.10
         ```
-    * Water7
+    * WATER7
         ```
-        
+        Network 0.0.0.0 Mask 0.0.0.0 Next Hop 10.1.0.5
+        Network 10.1.0.128 Mask 255.255.255.128 Next Hop 10.1.0.2
+        Network 10.1.24.0 Mask 255.255.248.0 Next Hop 10.1.0.2
         ```
-    * Pucci
+    * PUCCI
         ```
-        
+        Network 0.0.0.0 Mask 0.0.0.0 Next Hop 10.1.0.1
         ```
-    * Guanhao
+    * GUANHAO
         ```
-        
+        Network 0.0.0.0 Mask 0.0.0.0 Next Hop 10.1.0.9
+        Network 10.1.1.0 Mask 255.255.255.0 Next Hop 10.1.0.14
+        Network 10.1.16.0 Mask 255.255.252.0 Next Hop 10.1.0.14
+        Network 10.1.0.36 Mask 255.255.255.252 Next Hop 10.1.0.14
+        Network 10.1.0.16 Mask 255.255.255.240 Next Hop 10.1.2.2
         ```
-    * Alabasta
+    * ALABASTA
         ```
-        
+        Network 0.0.0.0 Mask 0.0.0.0 Next Hop 10.1.2.1
         ```
-    * Oimo
+    * OIMO
         ```
-        
+        Network 0.0.0.0 Mask 0.0.0.0 Next Hop 10.1.0.13
+        Network 10.1.16.0 Mask 255.255.252.0 Next Hop 10.1.1.2
         ```
-    * Seastone
+    * SEASTONE
         ```
-        
+        Network 0.0.0.0 Mask 0.0.0.0 Next Hop 10.1.1.1
         ```
 8. Testing pengaturan subnetting dan routing
-    * ... menuju ...
+    * CALMBERT menuju ELENA
+        
+    * FUKUROU menuju BLUENO
+        
+    * DORIKI menuju ALABASTA
+        
     * Dan seterusnya 
 
 ### GNS3 - CIDR
@@ -145,10 +162,8 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
     * Tahap ke-5
         ![Subnetting-CIDR-6](https://user-images.githubusercontent.com/76677130/143619072-3ed3261d-8897-4471-a264-6b4b34a931b5.png)
     * Tahap ke-6
-        ![Subnetting-CIDR-7](https://user-images.githubusercontent.com/76677130/143619082-e7eb88cc-7f44-46f6-9068-093ce7c3c2c2.png)
-    * Tahap ke-7
         ![Subnetting-CIDR-8](https://user-images.githubusercontent.com/76677130/143619097-e06a1332-3ae7-4e94-8236-45c7e2969811.png)
-    * Tahap ke-8
+    * Tahap ke-7
         ![Subnetting-CIDR-9](https://user-images.githubusercontent.com/76677130/143619111-994f5947-17d7-4ef8-96c9-dc40ba3a49d5.png)
 4. Hitung pembagian IP (subnetting) berdasarkan penggabungan subnet yang telah dilakukan dengan pohon sebagai berikut.
     ![Subnetting-CIDR-tree](https://user-images.githubusercontent.com/76677130/143620568-dfd7502b-5e15-4960-b2b9-3358dfe464c3.png)
@@ -170,18 +185,149 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
     | A13	| 10.2.4.0	| 255.255.255.0	| 10.2.4.255 |
     | A14	| 10.2.0.0	| 255.255.252.0	| 10.2.3.255 |
     | A15	| 10.2.8.0	| 255.255.255.252	| 10.2.8.3 |
-5. Atur IP untuk masing-masing interface pada setiap device dengan cara `klik device` > `Configure` > `Edit Network Configuration` dan ubah menjadi sebagai berikut.
-    * Foosha
+5. Atur IP untuk masing-masing interface pada setiap device dengan cara `klik kanan device` > `Configure` > `Edit Network Configuration` dan ubah menjadi sebagai berikut.
+    * OIMO
         ```
-        
+        ## A12+
+        auto eth0
+        iface eth0 inet static
+          address 10.2.16.2
+          netmask 255.255.255.252
+          
+        ## A13-
+        auto eth1
+        iface eth1 inet static
+          address 10.2.4.1
+          netmask 255.255.255.0
+          
+        ## A15-
+        auto eth2
+        iface eth2 inet static
+          address 10.2.8.1
+          netmask 255.255.255.252
+        ```
+    * ENIESLOBBY
+        ```
+        ## A13+
+        auto eth0
+        iface eth0 inet static
+          address 10.2.4.2
+          netmask 255.255.255.0
+          gateway 10.2.4.1
+        ```
+    * SEASTONE
+        ```
+        ## A13+
+        auto eth0
+        iface eth0 inet static
+          address 10.2.4.3
+          netmask 255.255.255.0
+          
+        ## A14-
+        auto eth1
+        iface eth1 inet static
+          address 10.2.0.1
+          netmask 255.255.252.0
+        ```
+    * ELENA
+        ```
+        ## A14+
+        auto eth0
+        iface eth0 inet static
+          address 10.2.0.2
+          netmask 255.255.252.0
+          gateway 10.2.0.1
+        ```
+    * FUKUROU
+        ```
+        ## A15+
+        auto eth0
+        iface eth0 inet static
+          address 10.2.8.2
+          netmask 255.255.255.252
+          gateway 10.2.8.1
         ```
     * Dan seterusnya
 6. Routing untuk setiap router dengan menuliskan perintah sebagai berikut.
-    * Foosha
+    * FOOSHA
         ```
+        ## A5
+        route add -net 10.1.32.0 netmask 255.255.252.0 gw 10.1.64.2   # A4
+        route add -net 10.1.8.0 netmask 255.255.255.128 gw 10.1.64.2  # A1
+        route add -net 10.1.0.0 netmask 255.255.248.0 gw 10.1.64.2    # A2
+        route add -net 10.1.16.0 netmask 255.255.255.252 gw 10.1.64.2 # A3
+        ## A8
+        route add -net 10.2.36.0 netmask 255.255.252.0 gw 10.2.64.2   # A9
+        route add -net 10.2.32.0 netmask 255.255.254.0 gw 10.2.64.2   # A10
+        route add -net 10.2.34.0 netmask 255.255.255.240 gw 10.2.64.2 # A11
+        route add -net 10.2.16.0 netmask 255.255.255.252 gw 10.2.64.2 # A12
+        route add -net 10.2.4.0 netmask 255.255.255.0 gw 10.2.64.2    # A13
+        route add -net 10.2.0.0 netmask 255.255.252.0 gw 10.2.64.2    # A14
+        route add -net 10.2.8.0 netmask 255.255.255.252 gw 10.2.64.2  # A15
+        ```
+    * WATER7
+        ```
+        ## DEFAULT (A5)
+        route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.1.64.1
+        ## A3
+        route add -net 10.1.8.0 netmask 255.255.255.128 gw 10.1.16.2  # A1
+        route add -net 10.1.0.0 netmask 255.255.248.0 gw 10.1.16.2    # A2
+        ```
+    * PUCCI
+        ```
+        ## DEFAULT (A3)
+        route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.1.16.1
+        ```
+    * GUANHAO
+        ```
+        ## DEFAULT (A8)
+        route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.2.64.1
+        ## A12
+        route add -net 10.2.4.0 netmask 255.255.255.0 gw 10.2.16.2    # A13
+        route add -net 10.2.0.0 netmask 255.255.252.0 gw 10.2.16.2    # A14
+        route add -net 10.2.8.0 netmask 255.255.255.252 gw 10.2.16.2  # A15
+        ## A10
+        route add -net 10.2.34.0 netmask 255.255.255.240 gw 10.2.32.3 # A11
+        ```
+    * ALABASTA
+        ```
+        ## DEFAULT (A10)
+        route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.2.32.1
+        ```
+    * OIMO
+        ```
+        ## DEFAULT (A12)
+        route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.2.16.1
+        ## A13
+        route add -net 10.2.0.0 netmask 255.255.252.0 gw 10.2.4.3 # A14
+        ```
+    * SEASTONE
+        ```
+        ## DEFAULT (A13)
+        route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.2.4.1
+        ```
+7. Hubungkan topologi dengan jaringan luar menggunakan perintah sebagai berikut.
+    * FOOSHA
+        ```
+        iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.1.0.0/14
+        ```
+    * Device lainnya
+        ```
+        echo nameserver 192.168.122.1 > /etc/resolv.conf
+        ```
+9. Testing pengaturan subnetting dan routing
+    * JIPANGU ping my.its.ac.id
         
-        ```
+    * CALMBERT ping ELENA (10.2.0.2)
+        
+    * FUKUROU ping BLUENO (10.1.128.2)
+        
+    * DORIKI ping ALABASTA (10.2.34.3)
+        
     * Dan seterusnya
-7. Testing pengaturan subnetting dan routing dengan melakukan ping ke its.ac.id
-    * ...
-    * Dan seterusnya
+
+
+## Kendala
+Kendala yang dialami selama pengerjaan praktikum modul ini adalah sebagai berikut.
+* Untuk pengaturan source iptables pada GNS3-CIDR tidak dapat menggunakan subnet terbesar yang diperoleh (/15) karena akan menghasilkan ip dengan range 10.0.0.0 - 10.1.255.255 bukan 10.1.0.0 - 10.2.255.255. Sehingga source iptables yang digunakan adalah 10.1.0.0/14 dengan range ip 10.0.0.0 - 10.3.255.255.
+* Tidak dapat melakukan ping its.ac.id, sehingga menggunakan ping ke my.its.ac.id
