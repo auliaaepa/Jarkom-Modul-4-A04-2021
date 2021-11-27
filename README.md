@@ -68,7 +68,8 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
         # FastEthernet1/0 (mengarah ke COURTYARD dan CALMBELT)
         IPv4 Address : 10.1.24.1
         Subnet Mask : 255.255.248.0
-        ```            
+        ```     
+        ![WhatsApp Image 2021-11-27 at 21 35 01](https://user-images.githubusercontent.com/76677130/143686070-ba73954d-e0d5-489c-9383-99295979fa8a.jpeg)
     * Dan seterusnya
 6. Atur IP untuk masing-masing interface pada setiap end system (server dan client) dengan cara `klik end system` > `Desktop` > `IP Configuration`, dan ubah `IPv4 Address`, `Subnet Mask`, serta `Default Gateway` dengan hasil subnetting dan IP interface router.
     * JIPANGU
@@ -87,8 +88,9 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
         ```
         IPv4 Address : 10.1.24.3
         Subnet Mask : 255.255.248.0
-        Default Gateway : 0.1.24.1
+        Default Gateway : 10.1.24.1
         ```
+        ![WhatsApp Image 2021-11-27 at 21 37 07](https://user-images.githubusercontent.com/76677130/143686076-9f99a9c5-8329-43fa-9e83-12631b592e23.jpeg)
     * Dan seterusnya
 7. Atur static route untuk setiap router dengan cara `klik router` > `Config` > `ROUTING` > `Static`, dan tambahkan `Network`, `Mask`, dan `Next Hop` untuk seluruh device baik end system maupun router yang dapat terhubung melalui router tersebut.
     * FOOSHA
@@ -138,16 +140,16 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
         ```
 8. Testing pengaturan subnetting dan routing
     * CALMBERT menuju ELENA
-        
+        ![WhatsApp Image 2021-11-27 at 21 38 20](https://user-images.githubusercontent.com/76677130/143686083-70d2e5fa-37d3-4529-9e94-6fe18121cd36.jpeg)
     * FUKUROU menuju BLUENO
-        
+        ![WhatsApp Image 2021-11-27 at 21 40 06](https://user-images.githubusercontent.com/76677130/143686085-8ff08829-366d-4b80-adf0-7a1c00616bfc.jpeg)
     * DORIKI menuju ALABASTA
-        
+        ![WhatsApp Image 2021-11-27 at 21 41 03](https://user-images.githubusercontent.com/76677130/143686089-c374cc43-7dfe-4012-8ab9-e794e720c2fa.jpeg)
     * Dan seterusnya 
 
 ### GNS3 - CIDR
 1. Buat topologi hingga diperoleh hasil sebagai berikut.
-
+    ![WhatsApp Image 2021-11-27 at 21 41 40](https://user-images.githubusercontent.com/76677130/143686352-bb8602c2-09eb-4e2d-98ef-7a55cdf5b4cf.jpeg)
 2. Beri label pada setiap subnet.
     ![Subnetting-CIDR-1](https://user-images.githubusercontent.com/76677130/143618962-98fd9b20-d984-45a6-803d-d95bc9ea83ea.png)
 3. Gabungkan subnet untuk memperoleh subnet terbesar.
@@ -247,6 +249,7 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
           netmask 255.255.255.252
           gateway 10.2.8.1
         ```
+        ![WhatsApp Image 2021-11-27 at 21 45 16](https://user-images.githubusercontent.com/76677130/143686358-138085e4-7210-4c61-9d95-85e8fbc65aa2.jpeg)
     * Dan seterusnya
 6. Routing untuk setiap router dengan menuliskan perintah sebagai berikut.
     * FOOSHA
@@ -317,13 +320,9 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
         ```
 9. Testing pengaturan subnetting dan routing
     * JIPANGU ping my.its.ac.id
-        
+        ![WhatsApp Image 2021-11-27 at 21 48 44](https://user-images.githubusercontent.com/76677130/143686382-948539e0-697e-4350-a977-f1660fd6a2fc.jpeg)
     * CALMBERT ping ELENA (10.2.0.2)
-        
-    * FUKUROU ping BLUENO (10.1.128.2)
-        
-    * DORIKI ping ALABASTA (10.2.34.3)
-        
+        ![WhatsApp Image 2021-11-27 at 21 49 36](https://user-images.githubusercontent.com/76677130/143686390-08bae8cb-7026-4bf7-a95f-43ffc579de1d.jpeg)
     * Dan seterusnya
 
 
