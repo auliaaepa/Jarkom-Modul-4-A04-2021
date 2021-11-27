@@ -323,6 +323,8 @@ Pada soal ini diminta untuk membuat subnetting dan routing menggunakan Cisco Pac
         ![WhatsApp Image 2021-11-27 at 21 48 44](https://user-images.githubusercontent.com/76677130/143686382-948539e0-697e-4350-a977-f1660fd6a2fc.jpeg)
     * CALMBERT ping ELENA (10.2.0.2)
         ![WhatsApp Image 2021-11-27 at 21 49 36](https://user-images.githubusercontent.com/76677130/143686390-08bae8cb-7026-4bf7-a95f-43ffc579de1d.jpeg)
+    * FUKUROU ping BLUENO (10.1.128.2)
+        ![WhatsApp Image 2021-11-27 at 21 58 31](https://user-images.githubusercontent.com/76677130/143686513-86b5e084-8ba3-4fa4-b056-0f80b50f12bf.jpeg)
     * Dan seterusnya
 
 
